@@ -43,6 +43,13 @@ create table tb_vendas(
 )
 GO
 
+CREATE TABLE tb_itens_vendidos(
+id_item_vendido INT PRIMARY KEY IDENTITY(1,1),
+id_venda INT NOT NULL FOREIGN KEY REFERENCES tb_vendas(id_venda),
+id_harware INT NOT NULL FOREIGN KEY REFERENCES tb_hardware(id_hardware),
+)
+GO
+
 create table tb_vendas_itens(
        id_item int PRIMARY KEY identity(1,1),
        id_venda int not null,
@@ -50,4 +57,11 @@ create table tb_vendas_itens(
        qtde_item int not null,
        pco_vda decimal(8,2) not null
 )
+GO
+
+CREATE TABLE tb_vendas_canceladas(
+id_vendas_canceladas INT PRIMARY KEY IDENTITY(1,1),
+id_item_vendido INT NOT NULL FOREIGN KEY REFERENCES tb_itens_vendidos(id_item_vendido)
+)
+
 GO
