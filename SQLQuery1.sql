@@ -79,6 +79,9 @@ on v.id_cliente = c.id_cliente WHERE v.id_cliente IS NULL
 
 GO
 
+SELECT v.id_produto,p.id_produto FROM tb_produtos p
+left join tb_vendas v
+on v.id_produto = p.id_produto WHERE v.id_produto IS NULL
 
 
  
