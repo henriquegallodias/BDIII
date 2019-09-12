@@ -55,8 +55,30 @@ id_item_cancelado INT NOT NULL UNIQUE FOREIGN KEY REFERENCES tb_vendas(id_venda)
 )
 GO
 
-INSERT INTO tb_clientes (nome,endereco,idade,sexo,fone,email) VALUES ('Henrique','Rua One',17,'M','11988387640','henrique@gmail.com');
+INSERT INTO tb_clientes (nome,endereco,idade,sexo,fone,email) VALUES ('Henrique','Rua One',17,'M','11988387640','henrique@gmail.com'),('Maria','Rua 2',18,'F','11999999999','maria@gmail.com'),('Pedro','Rua 3',20,'M','11888888888','pedro@gmail.com'),('Lilian','Rua 3',22,'F','11777777777','lilian@gmail.com');
 
 GO
 
-INSERT INTO tb_produtos (nome,detalhes,data,desconto) VALUES ('Teclado Asus Wi-Fi','Preto','17/01/2002',0.1);
+INSERT INTO tb_produtos (nome,detalhes,data,desconto) VALUES ('Teclado Asus Wi-Fi','Preto','17/01/2002',0.1),('Mouse USB','Dell Branco','20/03/2015',0.2),('Monitor LCD','AOC 24pol','05/05/2016',0.0),('Pen Drive','Kingstom 16gb','25/06/2019',0.4);
+
+GO
+
+INSERT INTO tb_vendas (id_cliente,id_produto,data,desconto) VALUES (1,1,'20/02/2019',0.1),(3,2,'06/02/2018',0.0),(4,4,'01/07/2019',0.4);
+
+GO
+
+SELECT v.id_cliente , c.nome  FROM tb_vendas v
+inner join tb_clientes c
+on v.id_cliente = c.id_cliente
+
+GO
+
+SELECT v.id_cliente, c.nome FROM tb_clientes c
+left join tb_vendas v
+on v.id_cliente = c.id_cliente WHERE v.id_cliente IS NULL
+
+GO
+
+
+
+ 
