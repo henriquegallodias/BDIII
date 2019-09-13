@@ -91,13 +91,13 @@ on v.id_cliente = c.id_cliente WHERE v.id_cliente IS NULL
 
 GO
 
-SELECT v.id_produto,p.id_produto FROM tb_produtos p
+/*SELECT v.id_produto,p.id_produto FROM tb_produtos p
 left join tb_vendas v
 on v.id_produto = p.id_produto WHERE v.id_produto IS NULL
 
-GO 
+GO */ 
 
-SELECT p.id_produto,vi.id_produto FROM tb_produtos p
+SELECT p.nome,p.id_produto,vi.id_produto FROM tb_produtos p
 left join tb_vendas_item vi
 on p.id_produto = vi.id_produto WHERE vi.id_produto IS NULL
 
